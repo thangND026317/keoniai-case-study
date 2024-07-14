@@ -1,35 +1,141 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import keoniLogo from './assets/Keoni-logo.svg';
+import keoniLogoSmall from './assets/icon.svg';
+import { IconButton, Step, StepLabel, Stepper, styled } from '@mui/material';
+import { ChevronLeft, ChevronRight } from '@mui/icons-material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+
+const steps = ['Topic', 'Title', 'Outline', 'Blog Post'];
+
+const MyButton = styled(IconButton)({
+  position: 'absolute',
+  right: '-14px',
+  padding: 2,
+  background: '#D4BBF7',
+  color: '#8F47FF',
+  borderRadius: '8px',
+  border: 'none',
+  zIndex: 1,
+
+  ':hover': {
+    background: '#a977ef',
+    color: '#803fe5',
+  },
+
+  ':focus': {
+    outline: 'none',
+  },
+});
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [activeStep, setActiveStep] = useState(0);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <nav className={`sidenav${isExpanded ? ' expanded' : ''}`}>
+        <header className="sidenav__upper">
+          <div className="sidenav__header">
+            <img
+              src={isExpanded ? keoniLogo : keoniLogoSmall}
+              className="logo"
+              alt="Keoni.ai logo"
+            />
+            <MyButton onClick={() => setIsExpanded(prev => !prev)}>
+              {isExpanded ? <ChevronLeft /> : <ChevronRight />}
+            </MyButton>
+          </div>
+          <p>Home</p>
+          <p>Get Inspired</p>
+          <p>Manage</p>
+          <p>SEO</p>
+        </header>
+
+        <hr className="sidenav__divider" />
+        <footer className="sidenav__footer">
+          <p>Configure</p>
+          <p>Logged in user</p>
+        </footer>
+      </nav>
+      <main>
+        <section className="main__notice">
+          Article: 3 of 5 | Current plan: Stater <FontAwesomeIcon icon={faInfoCircle} />
+        </section>
+        <article>
+          <header>Create Blog Post</header>
+          <Stepper activeStep={activeStep}>
+            {steps.map(label => {
+              const stepProps: { completed?: boolean } = {};
+              const labelProps: {
+                optional?: React.ReactNode;
+              } = {};
+              return (
+                <Step key={label} {...stepProps}>
+                  <StepLabel {...labelProps}>{label}</StepLabel>
+                </Step>
+              );
+            })}
+          </Stepper>
+
+          <div className="main__article__content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum qui cupiditate
+            repellendus ducimus minima provident inventore. Ipsa saepe aperiam laboriosam corrupti
+            commodi nulla modi? Facilis quod ab doloribus itaque? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Autem dolorum qui cupiditate repellendus ducimus minima
+            provident inventore. Ipsa saepe aperiam laboriosam corrupti commodi nulla modi? Facilis
+            quod ab doloribus itaque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+            dolorum qui cupiditate repellendus ducimus minima provident inventore. Ipsa saepe
+            aperiam laboriosam corrupti commodi nulla modi? Facilis quod ab doloribus itaque? Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum qui cupiditate
+            repellendus ducimus minima provident inventore. Ipsa saepe aperiam laboriosam corrupti
+            commodi nulla modi? Facilis quod ab doloribus itaque? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Autem dolorum qui cupiditate repellendus ducimus minima
+            provident inventore. Ipsa saepe aperiam laboriosam corrupti commodi nulla modi? Facilis
+            quod ab doloribus itaque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+            dolorum qui cupiditate repellendus ducimus minima provident inventore. Ipsa saepe
+            aperiam laboriosam corrupti commodi nulla modi? Facilis quod ab doloribus itaque? Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum qui cupiditate
+            repellendus ducimus minima provident inventore. Ipsa saepe aperiam laboriosam corrupti
+            commodi nulla modi? Facilis quod ab doloribus itaque? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Autem dolorum qui cupiditate repellendus ducimus minima
+            provident inventore. Ipsa saepe aperiam laboriosam corrupti commodi nulla modi? Facilis
+            quod ab doloribus itaque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+            dolorum qui cupiditate repellendus ducimus minima provident inventore. Ipsa saepe
+            aperiam laboriosam corrupti commodi nulla modi? Facilis quod ab doloribus itaque? Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum qui cupiditate
+            repellendus ducimus minima provident inventore. Ipsa saepe aperiam laboriosam corrupti
+            commodi nulla modi? Facilis quod ab doloribus itaque? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Autem dolorum qui cupiditate repellendus ducimus minima
+            provident inventore. Ipsa saepe aperiam laboriosam corrupti commodi nulla modi? Facilis
+            quod ab doloribus itaque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+            dolorum qui cupiditate repellendus ducimus minima provident inventore. Ipsa saepe
+            aperiam laboriosam corrupti commodi nulla modi? Facilis quod ab doloribus itaque? Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum qui cupiditate
+            repellendus ducimus minima provident inventore. Ipsa saepe aperiam laboriosam corrupti
+            commodi nulla modi? Facilis quod ab doloribus itaque? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Autem dolorum qui cupiditate repellendus ducimus minima
+            provident inventore. Ipsa saepe aperiam laboriosam corrupti commodi nulla modi? Facilis
+            quod ab doloribus itaque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+            dolorum qui cupiditate repellendus ducimus minima provident inventore. Ipsa saepe
+            aperiam laboriosam corrupti commodi nulla modi? Facilis quod ab doloribus itaque? Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum qui cupiditate
+            repellendus ducimus minima provident inventore. Ipsa saepe aperiam laboriosam corrupti
+            commodi nulla modi? Facilis quod ab doloribus itaque? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Autem dolorum qui cupiditate repellendus ducimus minima
+            provident inventore. Ipsa saepe aperiam laboriosam corrupti commodi nulla modi? Facilis
+            quod ab doloribus itaque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+            dolorum qui cupiditate repellendus ducimus minima provident inventore. Ipsa saepe
+            aperiam laboriosam corrupti commodi nulla modi? Facilis quod ab doloribus itaque? Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum qui cupiditate
+            repellendus ducimus minima provident inventore. Ipsa saepe aperiam laboriosam corrupti
+            commodi nulla modi? Facilis quod ab doloribus itaque?
+          </div>
+        </article>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
