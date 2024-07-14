@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import './App.css';
-import keoniLogo from './assets/Keoni-logo.svg';
-import keoniLogoSmall from './assets/icon.svg';
-import { IconButton, Step, StepLabel, Stepper, styled } from '@mui/material';
+import { IconButton, Step, StepLabel, Stepper, styled, ThemeProvider } from '@mui/material';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+
+import './App.css';
+import { theme } from './components';
+
+import keoniLogo from './assets/Keoni-logo.svg';
+import keoniLogoSmall from './assets/icon.svg';
 
 const steps = ['Topic', 'Title', 'Outline', 'Blog Post'];
 
@@ -34,7 +37,7 @@ function App() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <nav className={`sidenav${isExpanded ? ' expanded' : ''}`}>
         <header className="sidenav__upper">
           <div className="sidenav__header">
@@ -134,7 +137,7 @@ function App() {
           </div>
         </article>
       </main>
-    </>
+    </ThemeProvider>
   );
 }
 
