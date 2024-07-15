@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { IconButton, Step, StepLabel, Stepper, styled, ThemeProvider } from '@mui/material';
+import { IconButton, styled, ThemeProvider } from '@mui/material';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 import './App.css';
-import { theme } from './components';
+import { theme, Stepper, StepLabel, Step } from './components';
 
 import keoniLogo from './assets/Keoni-logo.svg';
 import keoniLogoSmall from './assets/icon.svg';
@@ -68,6 +68,8 @@ function App() {
         </section>
         <article>
           <header>Create Blog Post</header>
+          <button onClick={() => setActiveStep(pre => --pre)}>Previous</button>
+          <button onClick={() => setActiveStep(pre => ++pre)}>Next</button>
           <Stepper activeStep={activeStep}>
             {steps.map(label => {
               const stepProps: { completed?: boolean } = {};

@@ -6,16 +6,17 @@ export const theme = createTheme({
       main: '#8F47FF',
       light: '#F1ECFE',
       dark: '#853FE7',
+      contrastText: '#FFFFFF',
     },
     info: {
       main: '#2343A9',
       light: '#DDE4F8',
     },
-    text: {
-      primary: '#FFFFFF',
-      secondary: '#1D1D1D',
-      disabled: '#D4BBF7',
-    },
+    // text: {
+    //   primary: '#8F47FF',
+    //   secondary: '#A1A1A1',
+    //   disabled: '#D4BBF7',
+    // },
     error: {
       main: '#D52F25',
       light: '#D93026',
