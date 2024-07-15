@@ -1,14 +1,15 @@
 import { useState } from 'react';
-import { IconButton, styled, ThemeProvider } from '@mui/material';
+import { styled, ThemeProvider } from '@mui/material';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import './App.css';
-import { theme, Stepper, StepLabel, Step } from './components';
+import { theme, Stepper, StepLabel, Step, IconButton } from './components';
 
 import keoniLogo from './assets/Keoni-logo.svg';
 import keoniLogoSmall from './assets/icon.svg';
+import ContentSwitcher from './layouts/ContentSwitcher';
 
 const steps = ['Topic', 'Title', 'Outline', 'Blog Post'];
 
@@ -33,7 +34,7 @@ const MyButton = styled(IconButton)({
 });
 
 function App() {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
   const [activeStep, setActiveStep] = useState(0);
 
   return (
@@ -52,24 +53,26 @@ function App() {
           </div>
           <p>Home</p>
           <p>Get Inspired</p>
-          <p>Manage</p>
-          <p>SEO</p>
+          <p>Manage Creations</p>
+          <p>Hire SEO Specialist</p>
         </header>
 
-        <hr className="sidenav__divider" />
         <footer className="sidenav__footer">
           <p>Configure</p>
-          <p>Logged in user</p>
+          <p>Steph T</p>
         </footer>
       </nav>
       <main>
         <section className="main__notice">
           Article: 3 of 5 | Current plan: Stater <FontAwesomeIcon icon={faInfoCircle} />
+          <IconButton>
+            <FontAwesomeIcon icon={faXmark} />
+          </IconButton>
         </section>
         <article>
-          <header>Create Blog Post</header>
-          <button onClick={() => setActiveStep(pre => --pre)}>Previous</button>
-          <button onClick={() => setActiveStep(pre => ++pre)}>Next</button>
+          <h1>Create Blog Post</h1>
+          {/* <button onClick={() => setActiveStep(pre => --pre)}>Previous</button>
+          <button onClick={() => setActiveStep(pre => ++pre)}>Next</button> */}
           <Stepper activeStep={activeStep}>
             {steps.map(label => {
               const stepProps: { completed?: boolean } = {};
@@ -85,57 +88,10 @@ function App() {
           </Stepper>
 
           <div className="main__article__content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum qui cupiditate
-            repellendus ducimus minima provident inventore. Ipsa saepe aperiam laboriosam corrupti
-            commodi nulla modi? Facilis quod ab doloribus itaque? Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Autem dolorum qui cupiditate repellendus ducimus minima
-            provident inventore. Ipsa saepe aperiam laboriosam corrupti commodi nulla modi? Facilis
-            quod ab doloribus itaque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-            dolorum qui cupiditate repellendus ducimus minima provident inventore. Ipsa saepe
-            aperiam laboriosam corrupti commodi nulla modi? Facilis quod ab doloribus itaque? Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum qui cupiditate
-            repellendus ducimus minima provident inventore. Ipsa saepe aperiam laboriosam corrupti
-            commodi nulla modi? Facilis quod ab doloribus itaque? Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Autem dolorum qui cupiditate repellendus ducimus minima
-            provident inventore. Ipsa saepe aperiam laboriosam corrupti commodi nulla modi? Facilis
-            quod ab doloribus itaque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-            dolorum qui cupiditate repellendus ducimus minima provident inventore. Ipsa saepe
-            aperiam laboriosam corrupti commodi nulla modi? Facilis quod ab doloribus itaque? Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum qui cupiditate
-            repellendus ducimus minima provident inventore. Ipsa saepe aperiam laboriosam corrupti
-            commodi nulla modi? Facilis quod ab doloribus itaque? Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Autem dolorum qui cupiditate repellendus ducimus minima
-            provident inventore. Ipsa saepe aperiam laboriosam corrupti commodi nulla modi? Facilis
-            quod ab doloribus itaque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-            dolorum qui cupiditate repellendus ducimus minima provident inventore. Ipsa saepe
-            aperiam laboriosam corrupti commodi nulla modi? Facilis quod ab doloribus itaque? Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum qui cupiditate
-            repellendus ducimus minima provident inventore. Ipsa saepe aperiam laboriosam corrupti
-            commodi nulla modi? Facilis quod ab doloribus itaque? Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Autem dolorum qui cupiditate repellendus ducimus minima
-            provident inventore. Ipsa saepe aperiam laboriosam corrupti commodi nulla modi? Facilis
-            quod ab doloribus itaque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-            dolorum qui cupiditate repellendus ducimus minima provident inventore. Ipsa saepe
-            aperiam laboriosam corrupti commodi nulla modi? Facilis quod ab doloribus itaque? Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum qui cupiditate
-            repellendus ducimus minima provident inventore. Ipsa saepe aperiam laboriosam corrupti
-            commodi nulla modi? Facilis quod ab doloribus itaque? Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Autem dolorum qui cupiditate repellendus ducimus minima
-            provident inventore. Ipsa saepe aperiam laboriosam corrupti commodi nulla modi? Facilis
-            quod ab doloribus itaque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-            dolorum qui cupiditate repellendus ducimus minima provident inventore. Ipsa saepe
-            aperiam laboriosam corrupti commodi nulla modi? Facilis quod ab doloribus itaque? Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum qui cupiditate
-            repellendus ducimus minima provident inventore. Ipsa saepe aperiam laboriosam corrupti
-            commodi nulla modi? Facilis quod ab doloribus itaque? Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Autem dolorum qui cupiditate repellendus ducimus minima
-            provident inventore. Ipsa saepe aperiam laboriosam corrupti commodi nulla modi? Facilis
-            quod ab doloribus itaque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-            dolorum qui cupiditate repellendus ducimus minima provident inventore. Ipsa saepe
-            aperiam laboriosam corrupti commodi nulla modi? Facilis quod ab doloribus itaque? Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum qui cupiditate
-            repellendus ducimus minima provident inventore. Ipsa saepe aperiam laboriosam corrupti
-            commodi nulla modi? Facilis quod ab doloribus itaque?
+            <ContentSwitcher
+              step={steps[activeStep]}
+              onNextStep={() => setActiveStep(pre => ++pre)}
+            />
           </div>
         </article>
       </main>
