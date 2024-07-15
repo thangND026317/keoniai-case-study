@@ -12,11 +12,6 @@ export const theme = createTheme({
       main: '#2343A9',
       light: '#DDE4F8',
     },
-    // text: {
-    //   primary: '#8F47FF',
-    //   secondary: '#A1A1A1',
-    //   disabled: '#D4BBF7',
-    // },
     error: {
       main: '#D52F25',
       light: '#D93026',
@@ -35,4 +30,36 @@ export const theme = createTheme({
     }
   },
   spacing: 4,
+  components: {
+    MuiStep: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          '& .Mui-active': {
+            color: theme.palette.primary.main,
+            fontWeight: 600,
+          },
+
+          '& .Mui-completed': {
+            color: theme.palette.primary.main,
+            fontWeight: 600,
+          }
+        }),
+      }
+    },
+    MuiStepLabel: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          '& .Mui-active': {
+            color: theme.palette.primary.main,
+            fontWeight: 600,
+          },
+
+          '& .Mui-completed': {
+            color: theme.palette.primary.main,
+            fontWeight: 600,
+          }
+        }),
+      }
+    }
+  }
 });
