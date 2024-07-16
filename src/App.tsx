@@ -1,21 +1,14 @@
 import { useState } from 'react';
 import { styled, ThemeProvider } from '@mui/material';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import './App.css';
 import { theme } from './components/theme';
-import Stepper from './components/Stepper/Stepper';
-import Step from './components/Stepper/Step';
-import StepLabel from './components/Stepper/StepLabel';
 import IconButton from './components/IconButton';
 
 import keoniLogo from './assets/Keoni-logo.svg';
 import keoniLogoSmall from './assets/icon.svg';
-import ContentSwitcher from './layouts/ContentSwitcher';
-
-const steps = ['Topic', 'Title', 'Outline', 'Blog Post'];
+import { CreateBlogPost } from './pages/CreateBlogPost';
 
 const MyButton = styled(IconButton)({
   position: 'absolute',
@@ -39,7 +32,6 @@ const MyButton = styled(IconButton)({
 
 function App() {
   const [isExpanded, setIsExpanded] = useState(true);
-  const [activeStep, setActiveStep] = useState(0);
 
   return (
     <ThemeProvider theme={theme}>
@@ -66,39 +58,8 @@ function App() {
           <p>Steph T</p>
         </footer>
       </nav>
-      <main>
-        <section className="main__notice">
-          Article: 3 of 5 | Current plan: Stater <FontAwesomeIcon icon={faInfoCircle} />
-          <IconButton>
-            <FontAwesomeIcon icon={faXmark} />
-          </IconButton>
-        </section>
-        <article>
-          <h1>Create Blog Post</h1>
-          {/* <button onClick={() => setActiveStep(pre => --pre)}>Previous</button>
-          <button onClick={() => setActiveStep(pre => ++pre)}>Next</button> */}
-          <Stepper activeStep={activeStep}>
-            {steps.map(label => {
-              const stepProps: { completed?: boolean } = {};
-              const labelProps: {
-                optional?: React.ReactNode;
-              } = {};
-              return (
-                <Step key={label} {...stepProps}>
-                  <StepLabel {...labelProps}>{label}</StepLabel>
-                </Step>
-              );
-            })}
-          </Stepper>
 
-          <div className="main__article__content">
-            <ContentSwitcher
-              step={steps[activeStep]}
-              onNextStep={() => setActiveStep(pre => ++pre)}
-            />
-          </div>
-        </article>
-      </main>
+      <CreateBlogPost />
     </ThemeProvider>
   );
 }
