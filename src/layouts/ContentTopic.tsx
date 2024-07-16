@@ -1,8 +1,12 @@
 import React from 'react';
-import { Button, ContentContainer, Input } from '../components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle, faPencil } from '@fortawesome/free-solid-svg-icons';
 import { Chip, styled } from '@mui/material';
+
+import Input from '../components/Input';
+import Button from '../components/Button';
+import { ContentContainer } from '../components/ContentContainer';
+
 import { useTopicFetchers } from '../hooks/useTopicFetchers';
 
 export type ContentTopicProps = {

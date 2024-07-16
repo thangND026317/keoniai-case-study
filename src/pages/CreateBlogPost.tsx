@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import { Stepper, StepLabel, Step } from '../components';
+import { Stepper, StepLabel, Step } from '../components/Stepper';
 
 const steps = ['Topic', 'Title', 'Outline', 'Blog Post'];
 

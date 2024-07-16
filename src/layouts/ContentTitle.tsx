@@ -1,8 +1,6 @@
-import React from 'react';
-import { Button, ContentContainer } from '../components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle, faPencil } from '@fortawesome/free-solid-svg-icons';
+// import React from 'react';
 import { styled } from '@mui/material';
+import Button from '../components/Button';
 
 export type ContentTitleProps = {
   topic: string;
@@ -24,6 +22,7 @@ const ContentTitle = ({ topic, handleSubmit }: ContentTitleProps) => {
           <div>Form one</div>
           <div>Form 2</div>
           <div>Form 3</div>
+          <Button onClick={handleSubmit}></Button>
         </HalfSide>
       </TwoSidesContainer>
     </>

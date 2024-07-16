@@ -5,7 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import './App.css';
-import { theme, Stepper, StepLabel, Step, IconButton } from './components';
+import { theme } from './components/theme';
+import { Stepper, StepLabel, Step } from './components/Stepper';
+import IconButton from './components/IconButton';
 
 import keoniLogo from './assets/Keoni-logo.svg';
 import keoniLogoSmall from './assets/icon.svg';
