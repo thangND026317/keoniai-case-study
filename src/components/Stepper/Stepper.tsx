@@ -8,6 +8,16 @@ const StyledStepper = styled(MUIStepper)(({ theme }) => ({
     borderColor: 'unset',
   },
 
+  '.Mui-active': {
+    color: theme.palette.primary.main,
+    fontWeight: 600,
+  },
+
+  '.Mui-completed': {
+    color: theme.palette.primary.main,
+    fontWeight: 600,
+  },
+
   '.Mui-disabled': {
     color: theme.palette.grey[200],
     fontWeight: 500,

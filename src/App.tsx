@@ -6,7 +6,9 @@ import { faInfoCircle, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import './App.css';
 import { theme } from './components/theme';
-import { Stepper, StepLabel, Step } from './components/Stepper';
+import Stepper from './components/Stepper/Stepper';
+import Step from './components/Stepper/Step';
+import StepLabel from './components/Stepper/StepLabel';
 import IconButton from './components/IconButton';
 
 import keoniLogo from './assets/Keoni-logo.svg';

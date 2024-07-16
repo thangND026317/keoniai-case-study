@@ -30,36 +30,4 @@ export const theme = createTheme({
     }
   },
   spacing: 4,
-  components: {
-    MuiStep: {
-      styleOverrides: {
-        root: ({ theme }) => ({
-          '& .Mui-active': {
-            color: theme.palette.primary.main,
-            fontWeight: 600,
-          },
-
-          '& .Mui-completed': {
-            color: theme.palette.primary.main,
-            fontWeight: 600,
-          }
-        }),
-      }
-    },
-    MuiStepLabel: {
-      styleOverrides: {
-        root: ({ theme }) => ({
-          '& .Mui-active': {
-            color: theme.palette.primary.main,
-            fontWeight: 600,
-          },
-
-          '& .Mui-completed': {
-            color: theme.palette.primary.main,
-            fontWeight: 600,
-          }
-        }),
-      }
-    }
-  }
 });
